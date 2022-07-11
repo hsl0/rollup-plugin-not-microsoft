@@ -16,16 +16,17 @@ export default <PluginImpl>function notMicrosoft(options?: Options): Plugin {
     return {
         name: 'not-microsoft',
         transform(code, id) {
-            if (filter(id)) {
-                const ms = new MagicString(code);
-                ms.replace(regex, '');
-                return {
-                    code: ms.toString(),
-                    map: ms.generateMap({
-                        hires: true,
-                    }),
-                };
-            }
+            console.log(filter(id), filter, id);
+            //if (filter(id)) {
+            const ms = new MagicString(code);
+            ms.replace(regex, '');
+            return {
+                code: ms.toString(),
+                map: ms.generateMap({
+                    hires: true,
+                }),
+            };
+            //}
         },
     };
 };

@@ -11,16 +11,17 @@ exports.default = (function notMicrosoft(options) {
     return {
         name: 'not-microsoft',
         transform(code, id) {
-            if (filter(id)) {
-                const ms = new magic_string_1.default(code);
-                ms.replace(regex, '');
-                return {
-                    code: ms.toString(),
-                    map: ms.generateMap({
-                        hires: true,
-                    }),
-                };
-            }
+            console.log(filter(id), filter, id);
+            //if (filter(id)) {
+            const ms = new magic_string_1.default(code);
+            ms.replace(regex, '');
+            return {
+                code: ms.toString(),
+                map: ms.generateMap({
+                    hires: true,
+                }),
+            };
+            //}
         },
     };
 });
