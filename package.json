@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-not-microsoft",
-  "version": "0.2.3-test.2",
+  "version": "0.2.3",
   "description": "Removes microsoft copyright comment from tslib module in rollup.js bundled output",
   "main": "index.js",
   "scripts": {
