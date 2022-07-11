@@ -7,7 +7,11 @@ const pluginutils_1 = require("@rollup/pluginutils");
 const magic_string_1 = __importDefault(require("magic-string"));
 const regex = /\/\*+\s*Copyright\s\(c\)\sMicrosoft\sCorporation\.[\w./\s",]+\*+\s?\*\//gm;
 exports.default = (function notMicrosoft(options) {
-    const filter = (0, pluginutils_1.createFilter)(options === null || options === void 0 ? void 0 : options.include, options === null || options === void 0 ? void 0 : options.exclude);
+    const include = Array.isArray(options === null || options === void 0 ? void 0 : options.include)
+        ? [...options === null || options === void 0 ? void 0 : options.include]
+        : [];
+    include.push('tslib.js');
+    const filter = (0, pluginutils_1.createFilter)(include, options === null || options === void 0 ? void 0 : options.exclude);
     return {
         name: 'not-microsoft',
         transform(code, id) {

@@ -11,7 +11,12 @@ export interface Options {
 }
 
 export default <PluginImpl>function notMicrosoft(options?: Options): Plugin {
-    const filter = createFilter(options?.include, options?.exclude);
+    const include = Array.isArray(options?.include)
+        ? [...(options?.include as Array<string | RegExp>)]
+        : [];
+    include.push('tslib.js');
+
+    const filter = createFilter(include, options?.exclude);
 
     return {
         name: 'not-microsoft',
