@@ -10,6 +10,8 @@ tsconfig.json
 
 package-lock.json
 
+*.map
+
 # ignore the .ts files
 *.ts
 

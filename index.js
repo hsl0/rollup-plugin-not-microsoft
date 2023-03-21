@@ -20,3 +20,4 @@ exports.default = (function notMicrosoft() {
         },
     };
 });
+//# sourceMappingURL=index.js.map
